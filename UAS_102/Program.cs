@@ -230,5 +230,5 @@ namespace singly_linked_list
 
 //4. rare dan front
 
-//5.a. 46 sibblings 55 ; 63 sibblings 70 ; 62 sibblings 64
+//5.a. 46 sibblings 55 ; 63 sibblings 70 ; 62 sibblings 64//
 //b.InOrder: 16, 25, 41, 46, 42, 53, 55, 41, 60, 74, 63, 65, 70, 62, 64 /*
