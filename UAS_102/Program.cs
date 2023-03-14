@@ -1,32 +1,34 @@
-﻿using System;
+﻿using System; //sebuah statement untuk memanggil bagian dari framework
 
 
-namespace singly_linked_list
+namespace singly_linked_list //mengorganisir code kita dengan memberkan nama agar supaya tertata dengan baik dan akan mempermudah nantinya.
 {
-    //each node consist of the information part and  lik to the next mode
-
+    /// <summary>
+    /// setiap node terdiri dari bagian informasi dan tautan ke mode berikutnya
+    /// </summary>
     class Node
     {
-        public int IdNumber;
-        public string name ;
-        public string ProductType;
-        public string ProductPrice;
-        public Node next;
+        public int IdNumber; // hak akses dari method/class, int type data
+        public string name; //hak akses dari method/class, string type data
+        public string ProductType; // //hak akses dari method/class, string type data
+        public string ProductPrice; // //hak akses dari method/class, string type data
+        public Node next; //hak akses dari method/class, node type data
     }
-    class List
+    class List //mengelopokan code berdasarkan nama kelas.
     {
-        Node START;
-
-        public List()
+        Node START; //sebagai penyalur
+        public List() // dapat mengakses kelas list dari mana saja
         {
             START = null;
         }
-        public void addNote() // add a node in the list
+        public void addNote() // Menambahkan node dalam daftar
         {
+            //hak akses dari method / class
             int id;
             string nm;
             string pt;
             string pp;
+            //untuk menampilkan di output
             Console.Write("\nEnter the Id number of product : ");
             id = Convert.ToInt32(Console.ReadLine());
             Console.Write("\nEnter the name of the product: ");
@@ -41,7 +43,7 @@ namespace singly_linked_list
             newnode.ProductType = pt;
             newnode.ProductPrice = pp;
 
-            //if the node to be inserted is the first node
+            //jika node yang akan dimasukkan adalah node pertama
             if (START == null || id <= START.IdNumber)
             {
                 if ((START != null) && (id == START.IdNumber))
@@ -54,7 +56,7 @@ namespace singly_linked_list
                 return;
             }
 
-            //locate the positionn of the new node in the list
+            //Temukan posisi node baru dalam daftar
             Node previous, current;
             previous = START;
             current = START;
@@ -69,12 +71,12 @@ namespace singly_linked_list
                 previous = current;
                 current = current.next;
             }
-            /*once the above for loop is executed, prev and current are positioned in such a manner
-             that the position for the new node*/
+            /*Setelah loop for di atas dijalankan, prev dan arus diposisikan sedemikian rupa
+             bahwa posisi untuk node baru*/
             newnode.next = current;
             previous.next = newnode;
         }
-        public void traverse()
+        public void traverse() //Menambahkan node dalam daftar
         {
             if (listEmpty())
             {
@@ -98,11 +100,11 @@ namespace singly_linked_list
 
             }
         }
-        public bool delNode(int id)
+        public bool delNode(int id) //Menambahkan node dalam daftar
         {
             Node previous, current;
             previous = current = null;
-            // check if the spesified node is present in the list or not
+            // periksa apakah node spesified ada dalam daftar atau tidak
             if (Search(id, ref previous, ref current) == false)
                 return false;
             previous.next = current.next;
@@ -110,7 +112,7 @@ namespace singly_linked_list
                 START = START.next;
             return true;
         }
-        public bool Search(int nim, ref Node previous, ref Node current)
+        public bool Search(int nim, ref Node previous, ref Node current) 
         {
             previous = START;
             current = START;
@@ -124,7 +126,7 @@ namespace singly_linked_list
             else
                 return (true);
         }
-        public bool listEmpty()
+        public bool listEmpty() //Menambahkan node dalam daftar
         {
             if (START == null)
                 return true;
@@ -132,10 +134,10 @@ namespace singly_linked_list
                 return false;
         }
     }
-    class Program
+    class Program //mengelopokan code berdasarkan nama kelas.
     {
-        // check wheter the specified node is present in the list or not
-        static void Main(string[] args)
+        // periksa apakah node yang ditentukan ada dalam daftar atau tidak
+        static void Main(string[] args) //Fungsi ini akan di panggil otomatis saat program di eksekusi.
         {
             List obj = new List();
             while (true)
